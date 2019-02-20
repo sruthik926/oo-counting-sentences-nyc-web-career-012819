@@ -3,41 +3,20 @@ require 'pry'
 class String
 
   def sentence?
-    if self.end_with?(".")
-       true
-    else
-       false
-    end
+    self.end_with?(".")
   end
 
   def question?
-    if self.end_with?("?")
-       true
-    else
-       false
-    end
+    self.end_with?("?")
   end
 
   def exclamation?
-    if self.end_with?("!")
-       true
-    else
-       false
-    end
-
+    self.end_with?("!")
   end
 
-
-def count_sentences
-
-  countSentences = 0
-  puts sentenArr = self.split(/?|\...|\,)
-  #binding.pry
-  sentenArr.each do |sentence|
-     countSentences += 1
+  def count_sentences
+     arr = self.split(/[.?!...]/)
+     arr.reject { |word| word.empty? }.length
   end
-     countSentences
-      #binding.pry
-end
 
 end
